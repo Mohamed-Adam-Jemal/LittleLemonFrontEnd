@@ -1,0 +1,36 @@
+nav {
+    width: 100vw;
+    height: 95px;
+    position: fixed;
+    top: 0; /* Ensure it's fixed at the top */
+    z-index: 1; /* Ensure it's on top of other elements */
+    background-color: #ffffff;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-size: 19px;
+    font-weight: 500;
+    padding: 0 30px; /* Add padding to give some space on the sides */
+}
+
+.main-logo {
+    width: 236px;
+    height: 57px;
+    padding-left: 5.7%;
+}
+
+.page-links {
+    display: flex;
+    list-style: none;
+    padding-right: 5.7%;
+}
+
+.page-links a {
+    text-decoration: none; /* Remove underline */
+    color: rgb(0, 0, 0); /* Set link color */
+    padding: 10px 15px; /* Add padding for better appearance */
+    display: block; /* Make the link cover the entire list item */
+}
+

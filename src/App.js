@@ -1,31 +1,28 @@
-import './App.css';
-import Nav from './Nav';
-import Footer from './Footer';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import Home from './components/HomePage/Home';
+import Menu from './components/Menu';
+import Reservations from './components/Reservations';
+import OrderOnline from './components/OrderOnline';
+import Login from './components/Login';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import './App.css'
 
 function App() {
   return (
-    <>
-      <header>
-        <Nav /> {/* Navigation bar */}
-      </header>
-      <main>
-        <section id="about">
-          {/* About section */}
-        </section>
-        <section id="meals">
-          {/* Meal cards section */}
-        </section>
-        <section id="testimonials">
-          {/* Testimonials section */}
-        </section>
-        <section id="founders">
-          {/* Project founders section */}
-        </section>
-      </main>
-      <footer>
-        <Footer /> {/* Footer */}
-      </footer>
-    </>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        {/* <Route path="/about" element={<About />} /> */}
+        <Route path="/menu" element={<Menu />} />
+        <Route path="/reservations" element={<Reservations />} />
+        <Route path="/order-online" element={<OrderOnline />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 
