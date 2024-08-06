@@ -1,9 +1,47 @@
 import '../styling/Footer.css'
+import littleLemonFooterLogo from '../assets/images/littleLemonFooterLogo.png';
+import copyrightIcon from '../assets/icons/copyrightIcon.png';
+import envelopeIcon from '../assets/icons/envelopeIcon.png';
+import locationIcon from '../assets/icons/locationIcon.png';
+import phoneIcon from '../assets/icons/phoneIcon.png';
+import facebookIcon from '../assets/icons/facebookIcon.png';
+import pinterestIcon from '../assets/icons/pinterestIcon.png';
+import instagramIcon from '../assets/icons/instagramIcon.png';
+
 
 const Footer = () => {
     return(
         <div className='footer'>
-            <h1>footer</h1>
+            <div className='footer-content'>
+                <img src={littleLemonFooterLogo} alt="Little Lemon footer Logo" style={{width:"130px", height:"230px", marginTop:"45px"}}/>
+                <ul className='contact-us'>
+                    <h3 style={{margin:"0", color:"white", fontSize:"20px", fontFamily:"Karla", fontWeight:"700"}}>CONTACT US</h3>
+                    <li>
+                        <img src={locationIcon} alt="Location Icon" style={{width:"28px", height:"28px"}}/> 
+                        <h4>Rafah, Ghaza Strip, Palestine</h4>
+                    </li>
+                    <li>
+                        <img src={envelopeIcon} alt="Email Icon" style={{width:"28px", height:"28px"}}/> 
+                        <h4>little.lemon"example.com</h4>
+                    </li>
+                    <li>
+                        <img src={phoneIcon} alt="Phone Icon" style={{width:"28px", height:"28px"}}/> 
+                        <h4>+1525548648492</h4>
+                    </li>
+                </ul>
+                <ul className='connect-with-us'>
+                    <h3 style={{margin:"0", color:"white", fontSize:"20px", fontFamily:"Karla", fontWeight:"700"}}>CONNECT WITH US</h3>
+                    <div className='social-media-icons'>
+                        <img src={facebookIcon} alt="Facebook Icon" style={{width:"37px", height:"37px"}}/>
+                        <img src={instagramIcon} alt="Instagram Icon" style={{width:"35px", height:"35px"}}/>
+                        <img src={pinterestIcon} alt="Pinterest Icon" style={{width:"35px", height:"35px"}}/>
+                    </div>
+                </ul>
+            </div>
+            <div className='copyright'>
+                <img src={copyrightIcon} alt="Copyright Icon" style={{width:"30px", height:"30px"}}/>
+                <h4 style={{margin:"0 0 0 3px", color:"white", fontSize:"13px", fontFamily:"Karla", fontWeight:"400"}}>2024 by Little Lemon. All Rights Reserved.</h4>
+            </div>
         </div>
     )
 }
