@@ -1,0 +1,13 @@
+button {
+    font-size: 18px;
+    font-family: Karla, sans-serif;
+    font-weight: bold;
+    border: 0px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+button:hover {
+    transform: scale(1.05); 
+}

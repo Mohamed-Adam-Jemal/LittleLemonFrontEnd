@@ -1,0 +1,101 @@
+.testimonials-container {
+    height: 430px;
+    margin-top: 50px;
+    background-color: #495E57;
+    overflow: hidden; /* Hides overflow to prevent scrollbars on the container itself */
+    position: relative;
+}
+
+.testimonials-container h1 {
+    text-align: center;
+    font-family: Karla;
+    color: white;
+    font-size: 40px;
+    padding-top: 15px;
+    margin-bottom: 35px;
+}
+
+.testimonials-cards {
+    display: flex;
+    width: 948px;
+    gap: 45px;
+    overflow-x: auto; 
+    overflow-y: hidden;
+}
+
+.testimonials-cards::-webkit-scrollbar {
+    display: none; 
+}
+
+.buttons-cards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.testimonials-card {
+    scroll-snap-align: start; /* Ensures cards align properly */
+    flex: 0 0 auto; /* Prevents cards from shrinking */
+}
+
+#right-button{
+    rotate: 180deg;
+    margin-right: 3vw;
+}
+
+#left-button{
+    margin-left: 3vw;
+}
+
+#right-button, #left-button{
+    width: 50px;
+    height: 50px;
+}
+
+#right-button:hover {
+    transition: transform 0.2s ease-in-out;
+    transform: scale(1.15); 
+}
+
+#left-button:hover {
+    transition: transform 0.2s ease-in-out;
+    transform: scale(1.15); 
+}
+
+
+@media (max-width: 600px) {
+    .testimonials-container {
+        height: 375px;
+    }
+
+    .testimonials-container h1 {
+        font-size: 35px;
+    }
+
+    .testimonials-cards {
+        display: flex;
+        width: 245px;
+        gap: 10px;
+        overflow-x: auto; 
+        overflow-y: hidden;
+    }
+
+    .buttons-cards{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #right-button, #left-button{
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 320px) {
+    .testimonials-container{
+        height: 350px;
+    }
+}

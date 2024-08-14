@@ -1,0 +1,204 @@
+nav {
+    width: 100vw;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.main-logo {
+    width: 200px;
+    height: 50px;
+    padding-left: 5.55vw;
+}
+
+.page-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    font-family: Karla;
+    font-size: 20px;
+    font-weight: bold;
+    gap: 2.3vw;
+}
+
+.page-links a {
+    text-decoration: none;
+    color: black;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.page-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #F4CE14;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.page-links a:hover {
+    color: #F4CE14;
+    transform: scale(1.1);
+}
+
+.page-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.basket-icon {
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    transition: fill 0.3s ease; 
+}
+
+.basket-icon:hover{
+    fill: #F4CE14;
+}
+
+@media (min-width: 600px) and (max-width: 1024px) {
+    nav {
+        height: 115px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .basket-icon{
+        position: fixed;
+        top:10px;
+        right: 10px;
+    }
+
+    .main-logo {
+        margin: 0;
+        margin-top: 25px;
+        padding: 0;
+    }
+
+    .page-links {
+        padding-right: 0;
+    }
+}
+
+/* Hamburger and Icons Container Styles */
+.icons-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-right: 5.55vw;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #495E57;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Toggle hamburger */
+.hamburger.open .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+.hamburger.open .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-6px, -6px);
+}
+
+@media (max-width: 600px) {
+    .page-links-container {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        height: 100vh;
+        width: 250px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        padding-top: 30px;
+        gap: 35px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        overflow: hidden; /* Prevent overflow */
+    }
+
+    .page-links-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.618);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        z-index: 1;
+    }
+
+    .page-links {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        gap: 35px;
+    }
+
+    .page-links-container.open {
+        transform: translateX(0);
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .main-logo {
+        width: 160px;
+        height: 40px;
+    }
+
+    .icons-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-right: 5.55vw;
+    }
+
+    .basket-icon{
+        position: static;
+        width: 35px;
+        height: 35px;
+        margin-top: 2px;
+    }
+}

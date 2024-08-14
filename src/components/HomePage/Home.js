@@ -1,7 +1,7 @@
-import Overview from './Overview';
-import WeekSpecials from './WeekSpecials';
-import Testimonials from './Testimonials';
-import About from './About';
+import Overview from './Overview/Overview';
+import WeekSpecials from './Week Specials/WeekSpecials';
+import Testimonials from './Testimonials/Testimonials';
+import About from './About/About';
 
 const Home = () => {
     return(
