@@ -1,4 +1,79 @@
 .about-container {
     height: 645px;
+    width: 100%;
     display: flex;
+    margin-top: 70px;
+    background-color: #ffffff
+}
+
+.about-body {
+    width: 100vw;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-left: 15vw;
+}
+
+.founders-imageA, .founders-imageB{
+    width: 28px;
+    height: 33px;
+    border-radius: 16px;
+    object-fit: cover;
+}
+
+.founders-imageB{
+    margin-top: 20%;
+    margin-right: 25px;
+}
+
+.founders-images {
+    display: flex;
+    margin-right: 15vw;
+}
+
+.about-body>h1 {
+    margin-top: 70px;
+    color: #000000;
+    font-size: 50px;
+    font-family: 'Markazi Text', serif;
+    font-weight: 700;
+    margin-bottom: -10px;
+}
+
+.about-body>h2 {
+    margin: 0;
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    font-family: 'Karla';
+    font-weight: 500;
+    margin-bottom:20px;
+}
+  
+.about-body>p {
+    display: flex;
+    max-width: 470px;
+    min-width: 300px;
+    margin: 0;
+    font-size: 20px;
+    font-family: 'Karla';
+    font-weight: 400;
+    text-align: justify;
+    color: rgb(0, 0, 0);
+    margin-bottom: 20px;
+    margin-right: 3.5vw;
+    
+  }
+
+  .about-body button {
+    width: 185px;
+    height: 50px;
+    margin-top: 0;
+    border-radius: 16px;
+    background-color: #333333;
+    color: #ffffff;
+    font-size: 18px;
+    font-family: 'Karla';
+    font-weight: bold;
+    border: 0px; 
 }
