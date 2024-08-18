@@ -1,0 +1,41 @@
+.successfull-book-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.successfull-book-container h1{
+    font-size: 64px;
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    text-align: center;
+    margin: 85px 5vw 37px 5vw;
+
+}
+
+.successfull-book-container p{
+    font-family: Karla;
+    font-size: 40px;
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    text-align: center;
+    margin: 70px 5vw 50px 5vw;
+}
+
+.done-icon{
+    width: 100px;
+    height: 100px;
+}
+
+@media (max-width: 768px) {
+    .successfull-book-container h1{
+        font-size: 55px;
+    }
+    
+    .successfull-book-container p{
+        font-size: 32px;
+    }
+}

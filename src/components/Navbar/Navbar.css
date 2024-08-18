@@ -74,6 +74,15 @@ nav {
     fill: #F4CE14;
 }
 
+.hamburger:hover .bar {
+    background-color: #F4CE14;
+}
+
+.page-links a.active {
+    color: #F4CE14;
+}
+
+
 @media (min-width: 600px) and (max-width: 1024px) {
     nav {
         height: 115px;

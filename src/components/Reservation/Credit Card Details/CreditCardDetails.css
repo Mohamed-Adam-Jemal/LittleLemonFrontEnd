@@ -1,0 +1,69 @@
+.credit-card-details{
+    display: flex;
+    flex-direction: column;
+    margin-top: -10px;
+    gap:30px; 
+    width: 400px;
+  }
+
+.credit-card-details input  {
+    height: 50px;
+    background-color: white;
+    color: #333333;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    border-radius: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    font-weight: 700;
+    font-family: Karla;
+  }
+
+  .expdate-cvv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin: 0px 30px;
+  }
+
+  .card-cvv{
+    display: flex;
+    gap:6px;
+    justify-content: center;
+    align-items: end;
+  }
+
+  @media (max-width: 600px) {
+
+    .credit-card-details{
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .credit-card-details>input  {
+      width: 270px;
+    }
+  
+    .expdate-cvv{
+      gap: 10px;
+    }
+
+    .expdate-cvv>input{
+      width: 140px;
+    }
+
+    .card-cvv{
+      align-items: center;
+    }
+
+    .card-cvv>input{
+      width: 75px;
+    }
+
+    .card-cvv img{
+      width: 38px;
+      height: 35px;
+    }
+  }
