@@ -1,28 +1,32 @@
-import { availableTimesReducer } from './Reservations'; 
-import { render, screen } from '@testing-library/react';
-import BookingDetails from './Booking Details/BookingDetails'; 
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { initializeTimes } from './Reservations';
+import { fetchAPI, submitAPI } from './formAPIs';
+import Reservations from './Reservations';
+import BookingDetails from './Booking Details/BookingDetails';
+import SuccessfullBook from './Successful Book/SuccessfullBook';
+import UserBookingDetails from './User Booking Details/UserBookingDetails';
+import CreditCardDetails from './Credit Card Details/CreditCardsDetails';
+import { MemoryRouter } from 'react-router-dom';  // Import MemoryRouter
 
-describe('BookingDetails Component', () => {
-    it('renders a textarea with "Special Requests" as the placeholder', () => {
-        const availableTimes = []; 
-        const dispatch = jest.fn(); 
+jest.mock('./formAPIs', () => ({
+    fetchAPI: jest.fn(),
+    submitAPI: jest.fn(() => true),
+}));
 
-        render(<BookingDetails availableTimes={availableTimes} dispatch={dispatch} />);
-        const textareaElement = screen.getByPlaceholderText("Special Requests");
-        expect(textareaElement).toBeInTheDocument();
-    });
-});
-
-describe('availableTimesReducer', () => {
-    it('should initialize with default available times', () => {
+describe('initializeTimes', () => {
+    it('should initialize with times returned from fetchAPI', () => {
         const initialState = {
-            availableTimes: ["15:00", "16:00", "17:00", "18:00", "19:00", "20:00"]
+            availableTimes: []
         };
 
-        const action = { type: 'UNKNOWN_ACTION' };
-        const newState = availableTimesReducer(initialState, action);
+        // Mock fetchAPI to return specific times
+        fetchAPI.mockReturnValue(["17:00", "18:00", "19:00"]);
 
-        expect(newState).toEqual(initialState);
+        const action = { type: 'SET_DATE', payload: '2024-08-14' };
+        const newState = initializeTimes(initialState, action);
+
+        expect(newState.availableTimes).toEqual(["17:00", "18:00", "19:00"]);
+        expect(fetchAPI).toHaveBeenCalledWith(new Date('2024-08-14'));
     });
 
     it('should update available times based on date', () => {
@@ -30,14 +34,28 @@ describe('availableTimesReducer', () => {
             availableTimes: []
         };
 
-        // Testing for a weekday
-        let action = { type: 'SET_DATE', payload: '2024-08-14' }; // Tuesday
-        let newState = availableTimesReducer(initialState, action);
-        expect(newState.availableTimes).toEqual(["15:00", "16:00", "17:00", "18:00", "19:00", "20:00"]);
+        // Mock fetchAPI to return different times for testing
+        fetchAPI.mockReturnValueOnce(["17:30", "18:00", "19:00"])
+                  .mockReturnValueOnce(["18:30", "20:00", "22:00"]);
 
-        // Testing for a weekend
-        action = { type: 'SET_DATE', payload: '2024-08-17' }; // Saturday
-        newState = availableTimesReducer(initialState, action);
-        expect(newState.availableTimes).toEqual(["15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"]);
+        // Dispatch action for a specific date (Weekday)
+        let action = { type: 'SET_DATE', payload: '2024-08-14' };
+        let newState = initializeTimes(initialState, action);
+        expect(newState.availableTimes).toEqual(["17:30", "18:00", "19:00"]);
+        expect(fetchAPI).toHaveBeenCalledWith(new Date('2024-08-14'));
+
+        // Dispatch action for a different date (Weekend)
+        action = { type: 'SET_DATE', payload: '2024-08-17' };
+        newState = initializeTimes(initialState, action);
+        expect(newState.availableTimes).toEqual(["18:30", "20:00", "22:00"]);
+        expect(fetchAPI).toHaveBeenCalledWith(new Date('2024-08-17'));
+    });
+});
+
+
+describe('SuccessfullBook Component', () => {
+    it('should display "Booked Successfully" text when form is successfully submitted', async () => {
+        render(<SuccessfullBook />);
+        expect(screen.getByText('Booked Successfully')).toBeInTheDocument();
     });
 });

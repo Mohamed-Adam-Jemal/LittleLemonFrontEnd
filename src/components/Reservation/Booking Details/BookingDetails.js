@@ -1,12 +1,9 @@
-// BookingDetails.js
 import React from 'react';
 import './BookingDetails.css';
 import { useState } from 'react';
 
-const BookingDetails = ({ availableTimes, dispatch, formData, updateFormData }) => {
+const BookingDetails = ({ availableTimes, dispatch, formData, updateFormData, errors, updateErrors }) => {
     const [touchedFields, setTouchedFields] = useState({});
-
-    const [errors, setErrors] = useState({});
 
     const handleBlur = (event) => {
         const { name } = event.target;
@@ -25,50 +22,53 @@ const BookingDetails = ({ availableTimes, dispatch, formData, updateFormData }) 
     const handleChange = (event) => {
         const { name, value } = event.target;
         updateFormData({ [name]: value });
-    
+
+        // Clear error when user starts typing
+        updateErrors(name, { msg: '', status: '' });
+
         if (name === 'diners') {
             if (value > 9) {
-                setErrors((prevErrors) => ({
-                    ...prevErrors,
-                    diners: 'Max is 9',
-                }));
+                updateErrors(name, { msg: 'Max is 9', status: true });
+            } else if (value <= 0) {
+                updateErrors(name, { msg: 'Min is 1', status: true });
             } else {
-                setErrors((prevErrors) => ({
-                    ...prevErrors,
-                    diners: '',
-                }));
-            }
+                updateErrors(name, { msg: '', status: false });
+            } 
         }
     };
-    
-    const getInputId = (name) => {
+
+    const getInputClass = (name) => {
         if (name === 'diners') {
-            return touchedFields[name] && (formData[name] === '' || errors.diners) ? 'input-error' : '';
+            return touchedFields[name] && (formData[name] === '' || errors[name].status ) ? 'input-error' : '';
         }
-        return touchedFields[name] && !formData[name] ? 'input-error' : '';
+        return touchedFields[name] && (formData[name] === '') ? 'input-error' : '';
     };
     
 
     return (
-        <div className="booking-details-form" data-testid="booking-details-form">
+        <div className="booking-details-form" data-testid="BookingDetails">
             <div className="form-first-line">
                 <input
+                    title='date'
                     type="date"
                     name="date"
+                    aria-label="Select booking date"
                     placeholder="Date*"
                     value={formData.date}
                     onChange={handleDateChange}
                     onBlur={handleBlur}
-                    id={getInputId('date')}
+                    className={getInputClass('date')}
                     required
-                    data-testid="date-input"
+                    data-testid="date-select"
                 />
                 <select
+                    title='time'
                     name="time"
+                    aria-label="Select booking time"
                     value={formData.time}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    id={getInputId('time')}
+                    className={getInputClass('time')}
                     required
                     data-testid="time-select"
                 >
@@ -78,32 +78,38 @@ const BookingDetails = ({ availableTimes, dispatch, formData, updateFormData }) 
                     ))}
                 </select>
                 <div className='diners-container'>
-                    <input
-                        type="number"
-                        name="diners"
-                        placeholder="N° Diners*"
-                        value={formData.diners}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        id={getInputId('diners')}
-                        required
-                        max={9}
-                        data-testid="diners-input"
-                    />
-                    {errors.diners && (
-                        <div className="error-message" data-testid="diners-error">
-                            {errors.diners}
-                        </div>
-                    )}
+                    <div className='field-error-container'>
+                        <input
+                            title='diners'
+                            type="number"
+                            name="diners"
+                            aria-label="Enter number of diners"
+                            placeholder="N° Diners*"
+                            value={formData.diners}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            className={getInputClass('diners')}
+                            required
+                            max={9}
+                            data-testid="diners-input"
+                        />
+                        {errors.diners?.msg && (
+                            <div className="error-message" data-testid="diners-error">
+                                {errors.diners.msg}
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
             <div className="form-second-line">
                 <select
+                    title='occasion'
                     name="occasion"
+                    aria-label="Select occasion"
                     value={formData.occasion}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    id={getInputId('occasion')}
+                    className={getInputClass('occasion')}
                     required
                     data-testid="occasion-select"
                 >
@@ -113,11 +119,13 @@ const BookingDetails = ({ availableTimes, dispatch, formData, updateFormData }) 
                     <option value="business">Business</option>
                 </select>
                 <select
+                    title='seatingPreference'
                     name="seatingPreference"
+                    aria-label="Select seating preference"
                     value={formData.seatingPreference}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    id={getInputId('seatingPreference')}
+                    className={getInputClass('seatingPreference')}
                     required
                     data-testid="seating-preference-select"
                 >
@@ -129,6 +137,7 @@ const BookingDetails = ({ availableTimes, dispatch, formData, updateFormData }) 
             <div className="form-third-line">
                 <textarea
                     name="specialRequests"
+                    aria-label="Enter special requests"
                     placeholder="Special Requests"
                     value={formData.specialRequests}
                     onChange={handleChange}

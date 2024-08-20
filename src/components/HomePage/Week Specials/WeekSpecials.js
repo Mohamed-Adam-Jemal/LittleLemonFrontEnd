@@ -3,7 +3,7 @@ import './WeekSpecials.css';
 import BruchettaImg from '../../../assets/images/dishes/Bruchetta.jpg';
 import GreekSaladImg from '../../../assets/images/dishes/GreekSalad.jpg';
 import PastaImg from '../../../assets/images/dishes/Pasta.jpg';
-import Button from "../../Button/Button";
+
 
 const WeekSpecials = () => {
     const dishes = [

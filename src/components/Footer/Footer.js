@@ -1,4 +1,4 @@
-import './Footer.css'
+import './Footer.css';
 import littleLemonFooterLogo from '../../assets/images/littleLemonFooterLogo.png';
 import copyrightIcon from '../../assets/icons/copyrightIcon.png';
 import envelopeIcon from '../../assets/icons/envelopeIcon.png';
@@ -6,29 +6,65 @@ import locationIcon from '../../assets/icons/locationIcon.png';
 import phoneIcon from '../../assets/icons/phoneIcon.png';
 
 const Footer = () => {
-    return(
+    return (
         <div className='footer'>
             <div className='footer-content'>
-                <img src={littleLemonFooterLogo} alt="Little Lemon footer Logo" style={{width:"130px", height:"230px"}}/>
+                <img 
+                    src={littleLemonFooterLogo} 
+                    alt="Little Lemon footer logo" 
+                    style={{width: "130px", height: "230px"}} 
+                    aria-label="Little Lemon footer logo"
+                />
                 <ul className='contact-us'>
-                    <h3 style={{color:"white", fontSize:"20px", fontFamily:"Karla", fontWeight:"700"}}>CONTACT US</h3>
+                    <h3 
+                        style={{color: "white", fontSize: "20px", fontFamily: "Karla", fontWeight: "700"}} 
+                        aria-label="Contact Us"
+                    >
+                        CONTACT US
+                    </h3>
                     <li>
-                        <img src={locationIcon} alt="Location Icon" style={{width:"28px", height:"28px"}}/> 
+                        <img 
+                            src={locationIcon} 
+                            alt="Location icon" 
+                            style={{width: "28px", height: "28px"}} 
+                            aria-label="Location icon"
+                        />
                         <h4>Rafah, Ghaza Strip, Palestine</h4>
                     </li>
                     <li>
-                        <img src={envelopeIcon} alt="Email Icon" style={{width:"28px", height:"28px"}}/> 
-                        <h4>little.lemon"example.com</h4>
+                        <img 
+                            src={envelopeIcon} 
+                            alt="Email icon" 
+                            style={{width: "28px", height: "28px"}} 
+                            aria-label="Email icon"
+                        />
+                        <h4>little.lemon@example.com</h4>
                     </li>
                     <li>
-                        <img src={phoneIcon} alt="Phone Icon" style={{width:"28px", height:"28px"}}/> 
+                        <img 
+                            src={phoneIcon} 
+                            alt="Phone icon" 
+                            style={{width: "28px", height: "28px"}} 
+                            aria-label="Phone icon"
+                        />
                         <h4>+1525548648492</h4>
                     </li>
                 </ul>
                 <ul className='connect-with-us'>
-                    <h3 style={{margin:"0", color:"white", fontSize:"20px", fontFamily:"Karla", fontWeight:"700", marginBottom:"17px"}}>CONNECT WITH US</h3>
+                    <h3 
+                        style={{margin: "0", color: "white", fontSize: "20px", fontFamily: "Karla", fontWeight: "700", marginBottom: "17px"}} 
+                        aria-label="Connect with Us"
+                    >
+                        CONNECT WITH US
+                    </h3>
                     <div className='social-media-icons'>
-                        <a className='facebook-icon' href="mailto:mohamed.adam.jemal@gmail.com" target="_blank" rel="noopener noreferrer">
+                        <a 
+                            className='facebook-icon' 
+                            href="mailto:mohamed.adam.jemal@gmail.com" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            aria-label="Facebook"
+                        >
                             <svg fill="white" viewBox="0 0 256 256" width="38px" height="38px">
                                 <g fillRule="nonzero" stroke="none" strokeWidth="1" strokeLinecap="butt" strokeLinejoin="miter" strokeMiterlimit="10">
                                     <g transform="scale(5.12,5.12)">
@@ -38,7 +74,13 @@ const Footer = () => {
                             </svg>
                         </a>
 
-                        <a className='instagram-icon' href={"https://github.com/Mohamed-Adam-Jemal"} target="_blank" rel="noopener noreferrer">
+                        <a 
+                            className='instagram-icon' 
+                            href="https://github.com/Mohamed-Adam-Jemal" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            aria-label="Instagram"
+                        >
                             <svg fill="white" viewBox="0 0 256 256" width="45px" height="45px">
                                 <g fillRule="nonzero" stroke="none" strokeWidth="1" strokeLinecap="butt" strokeLinejoin="miter" strokeMiterlimit="10">
                                     <g transform="scale(10.66667,10.66667)">
@@ -48,7 +90,13 @@ const Footer = () => {
                             </svg>
                         </a>
                         
-                        <a className='pinterest-icon' href={"https://linkedin.com/in/Mohamed-Adam-Jemal"} target="_blank" rel="noopener noreferrer">    
+                        <a 
+                            className='pinterest-icon' 
+                            href="https://linkedin.com/in/Mohamed-Adam-Jemal" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            aria-label="Pinterest"
+                        >
                             <svg viewBox="0 0 256 256" width="38px" height="38px">
                                 <g fill="#ffffff" fillRule="nonzero" stroke="none" strokeWidth="1" strokeLinecap="butt" strokeLinejoin="miter" strokeMiterlimit="10">
                                     <g transform="scale(5.12,5.12)">
@@ -61,11 +109,21 @@ const Footer = () => {
                 </ul>
             </div>
             <div className='copyright'>
-                <img src={copyrightIcon} alt="Copyright Icon" style={{width:"30px", height:"30px"}}/>
-                <h4 style={{marginRight:"0.2vw", color:"white", fontSize:"13px", fontFamily:"Karla", fontWeight:"400"}}>2024 by Little Lemon. All Rights Reserved.</h4>
+                <img 
+                    src={copyrightIcon} 
+                    alt="Copyright icon" 
+                    style={{width: "30px", height: "30px"}} 
+                    aria-label="Copyright icon"
+                />
+                <h4 
+                    style={{marginRight: "0.2vw", color: "white", fontSize: "13px", fontFamily: "Karla", fontWeight: "400"}} 
+                    aria-label="Copyright notice"
+                >
+                    2024 by Little Lemon. All Rights Reserved.
+                </h4>
             </div>
         </div>
-    )
+    );
 }
 
 export default Footer;

@@ -12,7 +12,7 @@
     background-color: white;
     color: #333333;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 0px;
     font-size: 16px;
     border-radius: 16px;
     width: 100%;
@@ -59,9 +59,14 @@
     background-repeat: no-repeat;
 }
 
-#input-error {
+.labels-grid .input-error {
     border: 2px solid rgb(255, 0, 0);
   }
+
+.field-error-container{
+  display: flex;
+  flex-direction: column;
+}
 
 @media (max-width: 600px) {
 

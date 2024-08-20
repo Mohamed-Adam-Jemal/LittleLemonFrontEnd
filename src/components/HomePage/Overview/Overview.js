@@ -18,9 +18,18 @@ const Overview = () => {
         <p>
           Little Lemon, founded by Adrian and Mario, is a cozy Mediterranean restaurant offering fresh, locally-sourced Mediterranean cuisine. Its commitment to sustainability, community, and convenient online table booking makes every visit special. 
         </p>
-        <button onClick={TableBooking}>Reserve a Table</button>
+        <button 
+          onClick={TableBooking}
+          aria-label="Reserve a table at Little Lemon"
+        >
+          Reserve a Table
+        </button>
       </div>
-      <img src={littleLemonMainPhoto} alt="Little Lemon Main Photo" className='main-image'/>
+      <img 
+        src={littleLemonMainPhoto} 
+        alt="Little Lemon restaurant with Mediterranean decor" 
+        className='main-image'
+      />
     </div>
   );
 };
