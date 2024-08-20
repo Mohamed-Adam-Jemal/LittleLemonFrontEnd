@@ -212,32 +212,29 @@ const Reservations = () => {
             <div className='back-box'>
                 {step < 4 && <h1 data-testid="header">Find a table for any occasion</h1>}
                 {step < 4 && (
-    <div className="progress-lines" data-testid="progress-lines">
-        <span
-            data-testid="step-1"
-            style={{ backgroundColor: step === 1 ? '#F4CE14' : '#ccc' }}
-            onClick={() => {
-                //if ( step > 1) goToStep(1); // Only allow going to step 1 if the current step is greater than 1
-                goToStep(1);
-            }}
-        ></span>
-        <span
-            data-testid="step-2"
-            style={{ backgroundColor: step === 2 ? '#F4CE14' : '#ccc' }}
-            onClick={() => {
-                //if (step > 2) goToStep(2); // Only allow going to step 2 if the current step is greater than 2
-                goToStep(2);
-            }}
-        ></span>
-        <span
-            data-testid="step-3"
-            style={{ backgroundColor: step === 3 ? '#F4CE14' : '#ccc' }}
-            onClick={() => {
-                //if (step > 3) goToStep(3); // Only allow going to step 3 if the current step is greater than 3
-                goToStep(3);
-            }}
-        ></span>
-    </div>
+        <div className="progress-lines" data-testid="progress-lines">
+            <span
+                data-testid="step-1"
+                style={{ backgroundColor: step === 1 ? '#F4CE14' : '#ccc', cursor: "pointer" }}
+                onClick={() => {
+                    if ( step > 1) goToStep(1); // Only allow going to step 1 if the current step is greater than 1
+                }}
+            ></span>
+            <span
+                data-testid="step-2"
+                style={{ backgroundColor: step === 2 ? '#F4CE14' : '#ccc', cursor: "pointer" }}
+                onClick={() => {
+                    if (step > 2) goToStep(2); // Only allow going to step 2 if the current step is greater than 2
+                }}
+            ></span>
+            <span
+                data-testid="step-3"
+                style={{ backgroundColor: step === 3 ? '#F4CE14' : '#ccc', cursor: "pointer"}}
+                onClick={() => {
+                    if (step > 3) goToStep(3); // Only allow going to step 3 if the current step is greater than 3
+                }}
+            ></span>
+        </div>
 )}
 
                 
