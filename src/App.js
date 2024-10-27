@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Home from './components/HomePage/Home';
-import Menu from './components/Menu';
+import Menu from './components/Menu/MenuItems';
 import Reservations from './components/Reservation/Reservations';
 import OrderOnline from './components/OrderOnline';
 import Login from './components/Login';

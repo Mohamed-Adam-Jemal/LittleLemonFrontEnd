@@ -13,6 +13,18 @@ nav {
     font-weight: 500;
 }
 
+/* Smooth hide on scroll down */
+.hidden {
+    transform: translateY(-100%);
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Smooth reappear on scroll up */
+.appearing {
+    transform: translateY(0);
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
 .main-logo {
     width: 200px;
     height: 50px;

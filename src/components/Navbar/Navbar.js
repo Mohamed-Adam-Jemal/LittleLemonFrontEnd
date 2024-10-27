@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 import littleLemonLogo from '../../assets/images/littleLemonLogo.jpg';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const location = useLocation();
 
   const handleClick = (anchor) => () => {
@@ -24,8 +26,23 @@ const Navbar = () => {
     }
   };
 
+  // Add scroll event listener to handle navbar visibility
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY) {
+        setIsVisible(false); // Hide navbar on scroll down
+      } else {
+        setIsVisible(true); // Show navbar on scroll up
+      }
+      setLastScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
   return (
-    <nav>
+    <nav className={`navbar ${isVisible ? 'appearing' : 'hidden'}`}>
       <div className="navbar-logo">
         <Link to="/">
           <img src={littleLemonLogo} alt="Little Lemon Logo" className="main-logo"/>
