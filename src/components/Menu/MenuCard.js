@@ -1,16 +1,16 @@
 import React from 'react';
 import './MenuCard.css'; // Import the CSS for styling
 
-const MenuCard = ({ imgUrl, title, price, desc }) => {
+const MenuCard = ({ imgUrl, title, price, descp }) => {
     return (
-        <div className="card-container">
+        <div className="menu-card-container">
             <img src={imgUrl} alt={title} />
             <div className="card-body-text">
-                <h3>{title}</h3>
-                <div className="title-price">
+                <div className='title-price'>
+                    <h3>{title}</h3>
                     <span className="price">{price}</span>
                 </div>
-                <p className="card-description">{desc}</p>
+                <p className="card-description">{descp}</p>
             </div>
         </div>
     );

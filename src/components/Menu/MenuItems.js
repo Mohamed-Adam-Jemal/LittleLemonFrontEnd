@@ -10,9 +10,16 @@ const MenuItems = () => {
         // Fetch menu items from the API
         const fetchMenuItems = async () => {
             try {
-                const response = await fetch('http://localhost:8000/api/menu-items'); // Replace with your API URL
+                const response = await fetch("http://localhost:8000/menu-items/?format=json", {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                })
+                // Replace with your API URL
                 const data = await response.json();
                 setMenuItems(data); // Assuming data is an array of menu items
+                console.log(data);
             } catch (error) {
                 console.error('Error fetching menu items:', error);
             } finally {
@@ -33,10 +40,10 @@ const MenuItems = () => {
                 {menuItems.map((item) => (
                     <MenuCard 
                         key={item.title} 
-                        imgUrl={item.imgUrl} // Assuming imgUrl is a property in your API response
+                        imgUrl={item.imageUrl} // Assuming imgUrl is a property in your API response
                         title={item.title} 
                         price={item.price} 
-                        desc={item.desc}
+                        descp={item.descp}
                     />
                 ))}
             </div>
